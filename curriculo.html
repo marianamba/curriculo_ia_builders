@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariana de Souza Aguiar | Currículo</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Light Theme */
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.2);
+            --border-color: #e2e8f0;
+            --accent: #8b5cf6;
+            --skill-bar-bg: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary: #60a5fa;
+            --primary-glow: rgba(96, 165, 250, 0.15);
+            --border-color: #334155;
+            --accent: #a78bfa;
+            --skill-bar-bg: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navbar & Theme Toggle */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(var(--bg-color), 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            border-color: var(--primary);
+        }
+
+        /* Section Global Styling */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at top right, var(--primary-glow), transparent);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            padding: 5px;
+            background: var(--card-bg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .punchline {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-bar-outer {
+            width: 100%;
+            height: 8px;
+            background: var(--skill-bar-bg);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-bar-inner {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+
+        /* Experience Section (Timeline) */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--bg-color);
+            box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-content ul {
+            margin: 0.75rem 0 0 1.1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline-content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-contact a {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .hero-contact a:hover {
+            color: var(--primary);
+            transform: scale(1.08);
+        }
+
+        /* Education & Courses Section */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .edu-card {
+            display: flex;
+            gap: 1.5rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .edu-icon {
+            background: var(--primary-glow);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Languages Section */
+        .lang-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .lang-card {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            width: 200px;
+        }
+
+        .lang-circles {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 1rem;
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--skill-bar-bg);
+        }
+
+        .circle.active {
+            background: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <h2 style="font-size: 1.2rem; letter-spacing: 1px;">MARIANA AGUIAR</h2>
+            <button class="theme-toggle" id="theme-toggle" title="Alternar Tema">
+                <i data-lucide="moon" id="theme-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero" id="home">
+        <div class="container hero-content" data-aos="fade-up">
+            <div class="profile-img-container">
+                <img src="WhatsApp%20Mariana.png" alt="Mariana de Souza Aguiar" class="profile-img" width="200"
+                    height="200">
+            </div>
+            <h1>Mariana de Souza Aguiar</h1>
+            <p class="punchline">Analista de Dados · São Paulo, SP</p>
+            <p style="max-width: 640px; margin: 0 auto 1.75rem; color: var(--text-muted); font-size: 1.05rem;">
+                Experiência em SQL, Power BI e ETL para transformar dados em insights de vendas, custos, margens e
+                desempenho operacional. Formação em Engenharia Civil e Ciência de Dados, com estatística e Python em
+                projetos de análise exploratória e métricas.
+            </p>
+            <div class="hero-contact" aria-label="Contato">
+                <a href="https://www.linkedin.com/in/mariana-souza-aguiar/" target="_blank" rel="noopener noreferrer"
+                    title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="mailto:mariana.szaguiar@gmail.com" title="E-mail"><i data-lucide="mail"></i></a>
+                <a href="tel:+5527999303132" title="Telefone"><i data-lucide="smartphone"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Habilidades</h2>
+            <div class="skills-grid">
+                <!-- Hard Skills -->
+                <div class="skill-card" data-aos="fade-up">
+                    <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="database" style="color: var(--primary);"></i> Ferramentas &amp; linguagens
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>SQL Server</span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Power BI (modelagem, DAX, dashboards)</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Excel</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Python</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="72%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Protheus (TOTVS) / CRM</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Figma</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="line-chart" style="color: var(--accent);"></i> Dados, análises &amp; IA
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>ETL &amp; integração de fontes</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Modelagem de dados &amp; KPIs</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Análise exploratória &amp; indicadores</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="86%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Storytelling com dados</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="84%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Automação de relatórios</span><span></span></div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="78%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>IA generativa (apoio à análise e documentação)</span><span></span>
+                        </div>
+                        <div class="skill-bar-outer">
+                            <div class="skill-bar-inner" data-width="76%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Experiência Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <span class="timeline-date">06/2023 – 01/2026</span>
+                    <div class="timeline-content">
+                        <h3>Analista de Dados</h3>
+                        <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.25rem;">Brasigran
+                            Brasileira de Granitos</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Beneficiamento e
+                            exportação de rochas ornamentais (médio porte).</p>
+                        <ul>
+                            <li>Dashboards analíticos no Power BI integrados a SQL Server e CRM Protheus (TOTVS) para
+                                vendas, produção e logística.</li>
+                            <li>Modelagem e bases de dados para KPIs das áreas comercial, operacional e logística.</li>
+                            <li>Rotinas de ETL para extração, tratamento e padronização de dados de múltiplas fontes.
+                            </li>
+                            <li>Análises exploratórias de custos, margens, vendas e eficiência operacional; interface com
+                                Comercial, Operações e TI para priorizar demandas.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <span class="timeline-date">11/2019 – 07/2021</span>
+                    <div class="timeline-content">
+                        <h3>Analista de Projetos</h3>
+                        <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.25rem;">Sereng Engenharia
+                            e Consultoria</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Projetos de
+                            engenharia (médio porte).</p>
+                        <ul>
+                            <li>Indicadores de desempenho de projetos para visibilidade, controle e previsibilidade.</li>
+                            <li>Apoio à análise de dados técnicos e relatórios gerenciais com foco em qualidade da
+                                informação e prazos.</li>
+                            <li>Alinhamento com clientes e gestores; planejamento e alocação de equipes de campo.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <span class="timeline-date">02/2018 – 10/2019</span>
+                    <div class="timeline-content">
+                        <h3>Assistente Técnico de Engenharia</h3>
+                        <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.25rem;">Marca Ambiental</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Soluções para
+                            resíduos (médio porte).</p>
+                        <ul>
+                            <li>Coleta, padronização e tratamento de dados operacionais para relatórios e painéis.</li>
+                            <li>KPIs operacionais (custo, produtividade, estabilidade) e melhoria contínua (PDCA, 5W2H).
+                            </li>
+                            <li>Projetos de integração entre operações e engenharia com rastreabilidade das informações.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Formação & Cursos</h2>
+            <div class="edu-grid">
+                <div class="edu-card" data-aos="zoom-in">
+                    <div class="edu-icon"><i data-lucide="graduation-cap"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Tecnólogo em Ciência de Dados</h3>
+                        <p style="color: var(--text-muted);">Universidade Vila Velha (UVV) · Vila Velha, Brasil</p>
+                        <p style="font-size: 0.85rem; color: var(--primary); margin-top: 0.2rem;">08/2022 – 12/2025</p>
+                    </div>
+                </div>
+                <div class="edu-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="edu-icon"><i data-lucide="landmark"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Bacharelado em Engenharia Civil</h3>
+                        <p style="color: var(--text-muted);">Centro Universitário Faesa (Faesa) · Vitória, Brasil</p>
+                        <p style="font-size: 0.85rem; color: var(--primary); margin-top: 0.2rem;">06/2013 – 12/2019</p>
+                    </div>
+                </div>
+                <div class="edu-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="edu-icon"><i data-lucide="route"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Técnico em Infraestrutura de Vias de Transportes</h3>
+                        <p style="color: var(--text-muted);">Instituto Federal do Espírito Santo (IFES) · Vitória,
+                            Brasil</p>
+                        <p style="font-size: 0.85rem; color: var(--primary); margin-top: 0.2rem;">08/2007 – 08/2011</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: LANGUAGES -->
+    <section id="languages">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-right">Idiomas</h2>
+            <div class="lang-grid">
+                <div class="lang-card" data-aos="flip-up">
+                    <h3 style="font-size: 1.1rem;">Português</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Nativo</p>
+                    <div class="lang-circles">
+                        <div class="circle active"></div>
+                        <div class="circle active"></div>
+                        <div class="circle active"></div>
+                        <div class="circle active"></div>
+                        <div class="circle active"></div>
+                    </div>
+                </div>
+                <div class="lang-card" data-aos="flip-up" data-aos-delay="100">
+                    <h3 style="font-size: 1.1rem;">Inglês</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Leitura e compreensão técnica</p>
+                    <div class="lang-circles">
+                        <div class="circle active"></div>
+                        <div class="circle active"></div>
+                        <div class="circle active"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mariana de Souza Aguiar · Currículo para impressão ou compartilhamento.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Initialize AOS (Animations)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            themeIcon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+            lucide.createIcons(); // Re-render icons
+        });
+
+        // Skill Bars Animation on Scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-bar-inner');
+                    bars.forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(document.querySelector('#skills'));
+
+        // Smooth Scrolling for nav links (if any were added)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
